@@ -1,0 +1,16 @@
+
+
+const rows = [
+    {
+        id: "1",
+        Pax_Name: "@MUI",
+        Contact: "0000020",
+        PNR: "22",
+        GSD_PNR:" 22",
+        Carrer: "none",
+        TotalFare: "8888",
+        Sold: "444",
+        TimeLimit: "null",
+    },
+
+],
