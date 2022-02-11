@@ -7,93 +7,315 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
 import { DataGrid } from '@mui/x-data-grid';
+import SaveIcon from '@mui/icons-material/Save';
+import SendIcon from '@mui/icons-material/Send';
+import LoadingButton from '@mui/lab/LoadingButton';
+// import oRows from "./sampleProtector";
 
-const rows = [
-    {
-        id: 1,
-        Pax_Name: '@MUI',
-        Contact: '0000020',
-        PNR: 22,
-        GSD_PNR: 22,
-        Carrer: 'none',
-        TotalFare: '8888',
-        Sold: 'none',
-        TimeLimit: 'null'
-    }
-];
+
 const Protector = () => (
+
     <div>
-        <Container maxWidth="md">
+        <Container maxWidth="lg">
             <Box xs={{ mt: 5 }}>
                 <Accordion>
                     <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1a-content" id="panel1a-header">
-                        <Typography>View Form</Typography>
+                        <Box sx={{
+                            p: 1.5,
+                            boxShadow: 2,
+                            border: 0.5,
+                            borderColor: 'primary.light',
+
+                        }}>
+                            <Typography variant="h4"
+                                sx={{
+                                    color: 'primary.dark',
+                                    '&:hover': {
+                                        color: 'primary.main',
+                                        opacity: [0.9, 0.8, 0.7],
+                                    },
+                                }}
+                            >
+                                View Form</Typography>
+                        </Box>
                     </AccordionSummary>
                     <AccordionDetails>
                         {/* .......................form............................ */}
                         <div>
-                            <h1>Protector </h1>
+                            <Box sx={{
+                                mb: 3,
+                                p: 1.5,
+                                boxShadow: 2,
+                                border: 0.5,
+                                borderColor: 'primary.light',
+
+                            }}>
+                                <Typography variant="h1"
+                                    sx={{
+                                        color: 'primary.dark',
+                                        textAlign: 'center',
+                                        '&:hover': {
+                                            color: 'primary.main',
+                                            opacity: [0.9, 0.8, 0.7],
+                                        },
+                                    }}
+                                >
+                                    Protector</Typography>
+                            </Box>
+
                             {/* <Box sx={{ bgcolor '#CFE8FC', height: '10:0vh' }} /> */}
-                            <Box
-                                component="form"
-                                sx={{
-                                    '& > :not(style)': { m: 1, width: '25ch' }
-                                }}
-                                noValidate
+                            <form noValidate
                                 autoComplete="off"
+                            // onSubmit={handleSubmit}
                             >
-                                <TextField id="outlined-name" label="Transition ID" />
-                                <TextField id="outlined-name" label="Pax Name" />
-                                <TextField id="outlined-name" label="Contact" />
-                                <TextField id="outlined-name" label="Type" />
-                                <TextField id="outlined-name" label="Country" />
-                                <TextField id="outlined-name" label="Our Cost" />
-                                <TextField id="outlined-name" label="Deposit" />
-                                <TextField id="outlined-name" label="Sold" />
-                                <TextField id="outlined-name" label="Balance" />
-                                <TextField id="outlined-name" label="Reference" />
-                                <TextField id="outlined-name" label="C/O" />
-                                <TextField id="outlined-name" label="C/T" />
-                            </Box>
-                            <Box sx={{ '& button': { m: 1 } }}>
-                                {' '}
-                                <div>
-                                    <Button variant="outlined" size="large">
+                                <Accordion>
+                                    <AccordionSummary
+                                        expandIcon={<ExpandMoreIcon />}
+                                        aria-controls="panel1a-content"
+                                        id="panel1a-header"
+                                    >
+                                        <Box sx={{
+                                            mb: 3,
+                                            p: 1.5,
+                                            borderColor: 'primary.light',
+                                            width: '100%',
+                                            borderLeft: '5px solid #3183ff',
+                                        }}>
+                                            <Typography variant="h3"
+                                                sx={{
+                                                    color: 'primary.dark',
+                                                    // textAlign:'center',
+                                                    '&:hover': {
+                                                        color: 'primary.main',
+                                                        opacity: [0.9, 0.8, 0.7],
+                                                    },
+                                                }}
+                                            >
+                                                <SendIcon />  &nbsp;
+                                                Personal Information</Typography>
+                                        </Box>
+                                    </AccordionSummary>
+                                    <AccordionDetails>
+
+                                        <Box
+                                            sx={{
+                                                '& > :not(style)': { p: 1, m: 1, width: '33ch' },
+                                                m: 1, mb: 3, mt: 2,
+                                                boxShadow: 1,
+                                                backgroundColor: '#cfe8fc',
+                                                borderLeft: '2px solid #3183ff',
+                                                borderBottom: '1px solid #3183ff',
+                                                borderColor: 'primary.light',
+                                                '& .MuiDataGrid-cell:hover': {
+                                                    color: 'primary.main',
+                                                    backgroundColor: '#cfe8fc',
+                                                }
+                                            }}>
+                                            <TextField id="outlined-name" label="Transition ID"  type="number" placeholder="Enter your ID" />
+                                            <TextField id="outlined-name" label="Pax Name" placeholder="Enter your PaxName" />
+                                            <TextField id="outlined-name" label="Contact"  type="number" placeholder="Enter your Number" />
+                                            <TextField id="outlined-name" label="Country" placeholder="Enter your Country" />
+                                        </Box>
+                                    </AccordionDetails></Accordion>
+
+
+                                    <Accordion>
+                                    <AccordionSummary
+                                        expandIcon={<ExpandMoreIcon />}
+                                        aria-controls="panel1a-content"
+                                        id="panel1a-header"
+                                    >
+                                        <Box sx={{
+                                            mb: 3,
+                                            p: 1.5,
+                                            borderColor: 'primary.light',
+                                            width: '100%',
+                                            borderLeft: '5px solid #3183ff',
+                                        }}>
+                                            <Typography variant="h3"
+                                                sx={{
+                                                    color: 'primary.dark',
+                                                    // textAlign:'center',
+                                                    '&:hover': {
+                                                        color: 'primary.main',
+                                                        opacity: [0.9, 0.8, 0.7],
+                                                    },
+                                                }}
+                                            >
+                                                <SendIcon />  &nbsp;
+                                               Cost</Typography>
+                                        </Box>
+                                    </AccordionSummary>
+                                    <AccordionDetails>
+                                <Box
+                                    sx={{
+                                        '& > :not(style)': { p: 1, m: 1, width: '33ch' },
+                                        m: 1, mb: 3, mt: 2,
+                                        boxShadow: 1,
+                                        backgroundColor: '#cfe8fc',
+                                        borderLeft: '2px solid #3183ff',
+                                        borderBottom: '1px solid #3183ff',
+                                        borderColor: 'primary.light',
+                                        '& .MuiDataGrid-cell:hover': {
+                                            color: 'primary.main',
+                                            backgroundColor: '#cfe8fc',
+                                        }
+                                    }}>
+                                    <TextField id="outlined-name" placeholder="Enter your Type" label="Type" />
+                                    <TextField id="outlined-name"  type="number" placeholder="Enter your Cost" label="Our Cost" />
+                                    <TextField id="outlined-name"  type="number" placeholder="Enter your Deposit Value" label="Deposit" />
+                                    <TextField id="outlined-name"  type="number" placeholder="Enter your Sold Value" label="Sold" />
+                                </Box>
+                                </AccordionDetails></Accordion>
+
+                                <Accordion>
+                                    <AccordionSummary
+                                        expandIcon={<ExpandMoreIcon />}
+                                        aria-controls="panel1a-content"
+                                        id="panel1a-header"
+                                    >
+                                        <Box sx={{
+                                            mb: 3,
+                                            p: 1.5,
+                                            borderColor: 'primary.light',
+                                            width: '100%',
+                                            borderLeft: '5px solid #3183ff',
+                                        }}>
+                                            <Typography variant="h3"
+                                                sx={{
+                                                    color: 'primary.dark',
+                                                    // textAlign:'center',
+                                                    '&:hover': {
+                                                        color: 'primary.main',
+                                                        opacity: [0.9, 0.8, 0.7],
+                                                    },
+                                                }}
+                                            >
+                                                <SendIcon />  &nbsp;
+                                              Reference</Typography>
+                                        </Box>
+                                    </AccordionSummary>
+                                    <AccordionDetails>
+                                <Box
+                                    sx={{
+                                        '& > :not(style)': { p: 1, m: 1, width: '33ch' },
+                                        m: 1, mb: 3, mt: 2,
+                                        boxShadow: 1,
+                                        backgroundColor: '#cfe8fc',
+                                        borderLeft: '2px solid #3183ff',
+                                        borderBottom: '1px solid #3183ff',
+                                        borderColor: 'primary.light',
+                                        '& .MuiDataGrid-cell:hover': {
+                                            color: 'primary.main',
+                                            backgroundColor: '#cfe8fc',
+                                        }
+                                    }}>
+
+                                    <TextField id="outlined-name" type="number" placeholder="Enter your Balance Value" label="Balance" />
+                                    <TextField id="outlined-name" placeholder="Enter your Reference Value" label="Reference" />
+                                    <TextField id="outlined-name" placeholder="Enter your C/O Value" label="C/O" />
+                                    <TextField id="outlined-name" placeholder="Enter your C/T Value" label="C/T" />
+                                </Box>
+                                </AccordionDetails>
+                                </Accordion>
+
+                                {/* .............................buttons.................................................. */}
+
+                                <Box sx={{
+                                    // float: 'right',
+                                    '& > button': { m: 2 }
+                                }}>
+
+                                    <LoadingButton
+                                        size="large"
+                                        // onClick={handleSubmitClick}
+                                        endIcon={<SendIcon />}
+                                        // loading={submitLoading}
+                                        loadingPosition="end"
+                                        variant="contained"
+                                    >
                                         Submit
-                                    </Button>
-                                    <Button color="secondary" variant="outlined" size="large">
+                                    </LoadingButton>
+                                    <LoadingButton
+                                        size="large"
+                                        color="secondary"
+                                        // onClick={handleResetClick}
+                                        // loading={resetLoading}
+                                        loadingPosition="start"
+                                        startIcon={<SaveIcon />}
+                                        variant="contained"
+                                    >
                                         Reset
-                                    </Button>
-                                </div>
-                            </Box>
+                                    </LoadingButton>
+                                </Box>
+                            </form>
                         </div>
                     </AccordionDetails>
                 </Accordion>
                 <Accordion>
-                    <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel2a-content" id="panel2a-header">
-                        <Typography>View Details</Typography>
+                    <AccordionSummary
+                        sx={{
+                            // filter: 'invert(1)',
+                            color: 'primary.dark',
+                            '&:hover': {
+                                color: 'primary.main',
+                                opacity: [0.9, 0.8, 0.7],
+                            },
+                        }}
+                        expandIcon={<ExpandMoreIcon />}
+                        aria-controls="panel2a-content"
+                        id="panel2a-header"
+                    >
+                        <Box sx={{
+                            p: 1.5,
+                            boxShadow: 2,
+                            border: 0.5,
+                            borderColor: 'primary.light',
+
+                        }}>
+                            <Typography variant="h4"
+                                sx={{
+                                    color: 'primary.dark',
+                                    '&:hover': {
+                                        color: 'primary.main',
+                                        opacity: [0.9, 0.8, 0.7],
+                                    },
+                                }}
+                            >
+                                Show Details</Typography>
+                        </Box>
                     </AccordionSummary>
                     <AccordionDetails>
                         {/* ...................Table............................ */}
-                        <div style={{ height: 250, width: '100%' }}>
+                        <div style={{ height: 450, width: '100%' }}>
                             <DataGrid
                                 columns={[
-                                    { field: 'Transition_ID', width: 200 },
-                                    { field: 'Pax_Name', width: 100 },
-                                    { field: 'Contact', width: 100 },
-                                    { field: 'Type', width: 100 },
-                                    { field: 'Country', width: 100 },
-                                    { field: 'OurCost', width: 100 },
-                                    { field: 'Deposit', width: 100 },
-                                    { field: 'Sold', width: 100 },
-                                    { field: 'Balance', width: 100 },
-                                    { field: 'Reference' },
-                                    { field: 'C/O' },
-                                    { field: 'C/T' }
+                                    { headerName: 'Transition_ID', field: 'Transition_ID', width: 150 },
+                                    { headerName: 'Pax_Name', field: 'Pax_Name', width: 150 },
+                                    { headerName: 'Contact', field: 'Contact', width: 150 },
+                                    { headerName: 'Type', field: 'Type', width: 150 },
+                                    { headerName: 'Country', field: 'Country', width: 150 },
+                                    { headerName: 'OurCost', field: 'OurCost', width: 150 },
+                                    { headerName: 'Deposit', field: 'Deposit', width: 150 },
+                                    { headerName: 'Sold', field: 'Sold', width: 150 },
+                                    { headerName: 'Balance', field: 'Balance', width: 150 },
+                                    { headerName: 'Reference', field: 'Reference', width: 150 },
+                                    { headerName: 'C/O', field: 'C/O', width: 150 },
+                                    { headerName: 'C/T', field: 'C/T', width: 150 }
                                 ]}
-                                rows={rows}
+                                // rows={oRows}
+
+                                sx={{
+                                    m: 1, mb: 2, mt: 2,
+                                    boxShadow: 5,
+                                    border: 2,
+                                    borderColor: 'primary.light',
+                                    '& .MuiDataGrid-cell:hover': {
+                                        color: 'primary.main',
+                                        backgroundColor: '#cfe8fc',
+                                    },
+                                }}
                             />
                         </div>
                     </AccordionDetails>

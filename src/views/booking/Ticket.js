@@ -7,28 +7,15 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
 import { DataGrid } from '@mui/x-data-grid';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DatePicker from '@mui/lab/DatePicker';
+import SaveIcon from '@mui/icons-material/Save';
+import SendIcon from '@mui/icons-material/Send';
+import LoadingButton from '@mui/lab/LoadingButton';
+// import oRows from "./sampletic";
 
-
-
-const rows = [
-    {
-        id: 1,
-        Pax_Name: '@MUI',
-        Contact: '0000020',
-        PNR: 22,
-        GSD_PNR: 22,
-        Carrer: 'none',
-        TotalFare: '8888',
-        Sold: 'none',
-        TimeLimit: 'null',
-    },
-
-];
 
 const Ticket = () => {
     const [dvalue, setValued] = React.useState(null);
@@ -38,276 +25,659 @@ const Ticket = () => {
     const [rvalue, setValuer] = React.useState(null);
 
     return <div>
-        <Container maxWidth="md">
-            <Box xs={{ mt: 5 }}>
-                <Accordion>
-                    <AccordionSummary
-                        expandIcon={<ExpandMoreIcon />}
-                        aria-controls="panel1a-content"
-                        id="panel1a-header"
+        <Container maxWidth="lg">
+
+            <Accordion>
+                <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel1a-content"
+                    id="panel1a-header"
+                >
+                    <Box sx={{
+                        p: 1.5,
+                        boxShadow: 2,
+                        border: 0.5,
+                        borderColor: 'primary.light',
+
+                    }}>
+                        <Typography variant="h4"
+                            sx={{
+                                color: 'primary.dark',
+                                '&:hover': {
+                                    color: 'primary.main',
+                                    opacity: [0.9, 0.8, 0.7],
+                                },
+                            }}
+                        >
+                            View Form</Typography>
+                    </Box>
+                </AccordionSummary>
+                <AccordionDetails>
+
+                    <Box sx={{
+                        mb: 3,
+                        p: 1.5,
+                        boxShadow: 2,
+                        border: 0.5,
+                        borderColor: 'primary.light',
+
+                    }}>
+                        <Typography variant="h1"
+                            sx={{
+                                color: 'primary.dark',
+                                textAlign: 'center',
+                                '&:hover': {
+                                    color: 'primary.main',
+                                    opacity: [0.9, 0.8, 0.7],
+                                },
+                            }}
+                        >
+                            Ticket   </Typography>
+                    </Box>
+                    {/* .......................form............................ */}
+
+                    <form noValidate
+                        autoComplete="off"
+                    // onSubmit={handleSubmit}
                     >
-                        <Typography>View Form</Typography>
-                    </AccordionSummary>
-                    <AccordionDetails>
-                        {/* .......................form............................ */}
-                        <div>
-                        <h1>Ticket </h1>
-            {/* <Box sx={{ bgcolor '#cfe8fc', height: '10:0vh' }} /> */}
-            <Box
-                component="form"
-                sx={{
-                    '& > :not(style)': { m: 1, width: '25ch' },
-                }}
-                noValidate
-                autoComplete="off"
-            >
-                <TextField
-                    id="outlined-name"
-                    label="Transition No"
-                />
-                <TextField
-                    id="outlined-name"
-                    label="Father/Husband Name"
-                />
-                <TextField
-                    id="outlined-name"
-                    label="Pax Name"
-                />
-                <TextField
-                    id="outlined-name"
-                    label="Contact"
-                />
-                <TextField
-                    id="outlined-name"
-                    label="PNR"
-                />
-                <TextField
-                    id="outlined-name"
-                    label="GSD PNR"
-                />
-                <TextField
-                    id="outlined-name"
-                    label="Ticket Number"
-                />
-                <TextField
-                    id="outlined-name"
-                    label="Taxes"
-                />
-                <TextField
-                    id="outlined-name"
-                    label="Carrer"
-                />
-                <TextField
-                    id="outlined-name"
-                    label="Fare"
-                />
-                <TextField
-                    id="outlined-name"
-                    label="Class"
-                />
-                <TextField
-                    id="outlined-name"
-                    label="Total Fare"
-                />
-                <TextField
-                    id="outlined-name"
-                    label="Sold"
-                />
-                <TextField
-                    id="outlined-name"
-                    label="Deposit"
-                />
-                <TextField
-                    id="outlined-name"
-                    label="From To"
-                />
-                <TextField
-                    id="outlined-name"
-                    label="To From"
-                />
-                <TextField
-                    id="outlined-name"
-                    label="PP Nationality"
-                />
-                <TextField
-                    id="outlined-name"
-                    label="PP Number"
-                />
-                    <LocalizationProvider dateAdapter={AdapterDateFns}>
-      <DatePicker
-        label="Date of Birth"
-        value={dvalue}
-        onChange={(newValue) => {
-          setValued(newValue);
-        }}
-        renderInput={(params) => <TextField {...params} />}
-      />
-    </LocalizationProvider>
-                    <LocalizationProvider dateAdapter={AdapterDateFns}>
-      <DatePicker
-        label="PP Expiry"
-        value={pvalue}
-        onChange={(newValue) => {
-          setValuep(newValue);
-        }}
-        renderInput={(params) => <TextField {...params} />}
-      />
-    </LocalizationProvider>
-                <TextField
-                    id="outlined-name"
-                    label="Visa Type"
-                />
-                   <LocalizationProvider dateAdapter={AdapterDateFns}>
-      <DatePicker
-        label="Visa Expiry"
-        value={value}
-        onChange={(newValue) => {
-          setValue(newValue);
-        }}
-        renderInput={(params) => <TextField {...params} />}
-      />
-    </LocalizationProvider>
-                 <LocalizationProvider dateAdapter={AdapterDateFns}>
-      <DatePicker
-        label="Travel Date"
-        value={tvalue}
-        onChange={(newValue) => {
-          setValuet(newValue);
-        }}
-        renderInput={(params) => <TextField {...params} />}
-      />
-    </LocalizationProvider>
-                <TextField
-                    id="outlined-name"
-                    label="Reference"
-                />
-                <TextField
-                    id="outlined-name"
-                    label="Pax type"
-                />
-                   <LocalizationProvider dateAdapter={AdapterDateFns}>
-      <DatePicker
-        label="Refund Date"
-        value={rvalue}
-        onChange={(newValue) => {
-          setValuer(newValue);
-        }}
-        renderInput={(params) => <TextField {...params} />}
-      />
-    </LocalizationProvider>
-                <TextField
-                    id="outlined-name"
-                    label="R/D with Pax"
-                />
-                <TextField
-                    id="outlined-name"
-                    label="Protector"
-                />
-                <TextField
-                    id="outlined-name"
-                    label="Invoice"
-                />
-                <TextField
-                    id="outlined-name"
-                    label="C/O"
-                />
-                <TextField
-                    id="outlined-name"
-                    label="C/T"
-                />
-                <TextField
-                    id="outlined-name"
-                    label="Payment History"
-                />
-                </Box>
-                <Box
-                    component="form"
-                    sx={{
-                        '& > :not(style)': { m: 1, width: '52ch' },
-                    }}
-                    noValidate
-                    autoComplete="off"
-                > <TextField
-                        id="outlined-name"
-                        label="Staff Name"
-                    />
-                    <TextField
-                        multiline rows={2}
-                        id="outlined-name"
-                        label="Description"
-                    />
-                </Box>
-                        </div>
+                        <Accordion>
+                            <AccordionSummary
+                                expandIcon={<ExpandMoreIcon />}
+                                aria-controls="panel1a-content"
+                                id="panel1a-header"
+                            >
+
+                                <Box sx={{
+                                    mb: 3,
+                                    p: 1.5,
+                                    borderColor: 'primary.light',
+                                    width: '100%',
+                                    borderLeft: '5px solid #3183ff',
+                                }}>
+                                    <Typography variant="h3"
+                                        sx={{
+                                            color: 'primary.dark',
+                                            // textAlign:'center',
+                                            '&:hover': {
+                                                color: 'primary.main',
+                                                opacity: [0.9, 0.8, 0.7],
+                                            },
+                                        }}
+                                    >
+                                        <SendIcon />  &nbsp;
+                                        Basic Information</Typography>
+                                </Box>
+                            </AccordionSummary>
+                            <AccordionDetails>
+                                <Box
+                                    sx={{
+                                        '& > :not(style)': { p: 1, m: 1, mb: 2, width: '33ch' },
+                                        m: 1, mb: 3, mt: 2,
+                                        borderLeft: '2px solid #3183ff',
+                                        borderBottom: '1px solid #3183ff',
+                                        backgroundColor: '#cfe8fc',
+                                        boxShadow: 1,
+                                        color: 'primary.main',
+                                    }} >
+                                    <TextField
+                                        id="outlined-name"
+                                        type="number"
+                                        label="Transition No"
+                                        placeholder=" Enter your ID"
+                                    />
+                                    <TextField
+                                        id="outlined-name"
+                                        label="Father/Husband Name"
+                                        placeholder=" Enter your Father/Husband Name"
+                                    />
+                                    <TextField
+                                        id="outlined-name"
+                                        label="Pax Name"
+                                        placeholder=" Enter your Pax Name"
+                                    />
+                                    <TextField
+                                        id="outlined-name"
+                                        type="number"
+                                        label="Contact"
+                                        placeholder=" Enter your Phone Number"
+                                    /></Box>
+                                <Box
+                                    sx={{
+                                        '& > :not(style)': { p: 1, m: 1, mb: 2, width: '33ch' },
+                                        m: 1, mb: 3, mt: 2,
+                                        borderLeft: '2px solid #3183ff',
+                                        borderBottom: '1px solid #3183ff',
+                                        backgroundColor: '#cfe8fc',
+                                        boxShadow: 1,
+                                        color: 'primary.main',
+                                    }} >
+                                    <LocalizationProvider dateAdapter={AdapterDateFns}>
+                                        <DatePicker
+                                            label="Date of Birth"
+
+                                            placeholder=" Enter your Date of birth"
+                                            value={dvalue}
+                                            onChange={(newValue) => {
+                                                setValued(newValue);
+                                            }}
+                                            renderInput={(params) => <TextField {...params} />}
+                                        />
+                                    </LocalizationProvider>
+
+                                    <TextField
+                                        id="outlined-name"
+                                        label="PNR"
+                                        placeholder=" Enter your PNR"
+                                    />
+                                    <TextField
+                                        id="outlined-name"
+                                        label="GSD PNR"
+                                        placeholder=" Enter your GSD PNR"
+                                    />
+                                    <TextField
+                                        id="outlined-name"
+                                        label="Carrer"
+                                        placeholder=" Enter your Carrer"
+                                    />
+                                </Box>
+                            </AccordionDetails>
+                        </Accordion>
+
+
+                        <Accordion>
+                            <AccordionSummary
+                                expandIcon={<ExpandMoreIcon />}
+                                aria-controls="panel1a-content"
+                                id="panel1a-header"
+                            >
+
+                                <Box sx={{
+                                    mb: 3,
+                                    p: 1.5,
+                                    borderColor: 'primary.light',
+                                    width: '100%',
+                                    borderLeft: '5px solid #3183ff',
+                                }}>
+                                    <Typography variant="h3"
+                                        sx={{
+                                            color: 'primary.dark',
+                                            // textAlign:'center',
+                                            '&:hover': {
+                                                color: 'primary.main',
+                                                opacity: [0.9, 0.8, 0.7],
+                                            },
+                                        }}
+                                    >
+                                        <SendIcon />  &nbsp;
+                                        Invoice</Typography>
+                                </Box>
+                            </AccordionSummary>
+                            <AccordionDetails>
+                                <Box
+                                    sx={{
+                                        '& > :not(style)': { p: 1, m: 1, mb: 2, width: '33ch' },
+                                        m: 1, mb: 3, mt: 2,
+                                        borderLeft: '2px solid #3183ff',
+                                        borderBottom: '1px solid #3183ff',
+                                        backgroundColor: '#cfe8fc',
+                                        boxShadow: 1,
+                                        color: 'primary.main',
+                                    }} >
+                                    <TextField
+                                        id="outlined-name"
+                                        label="Invoice"
+                                        type="number"
+                                        placeholder=" Enter your Invoice"
+                                    />
+                                  
+                                    <TextField
+                                        id="outlined-name"
+                                        label="Taxes"
+                                        type="number"
+                                        placeholder=" Enter your Taxes"
+                                    />
+
+                                    <TextField
+                                        id="outlined-name"
+                                        label="Fare"
+                                        type="number"
+                                        placeholder=" Enter your Fare"
+                                    />
+                                     <TextField
+                                        id="outlined-name"
+                                        label="Sold"
+                                        type="number"
+                                        placeholder=" Enter your Sold"
+                                    />
+                                </Box>
+                                <Box
+                                    sx={{
+                                        '& > :not(style)': { p: 1, m: 1, mb: 2, width: '33ch' },
+                                        m: 1, mb: 3, mt: 2,
+                                        borderLeft: '2px solid #3183ff',
+                                        borderBottom: '1px solid #3183ff',
+                                        backgroundColor: '#cfe8fc',
+                                        boxShadow: 1,
+                                        color: 'primary.main',
+                                    }} >
+
+
+                                    <TextField
+                                        id="outlined-name"
+                                        label="From To"
+                                        placeholder=" Enter the Value"
+                                    />
+                                    <TextField
+                                        id="outlined-name"
+                                        label="To From"
+                                        placeholder=" Enter your Value"
+                                    />
+                                  
+                                    <TextField
+                                        id="outlined-name"
+                                        label="Total Fare"
+                                        type="number"
+                                        placeholder=" Enter your Total Fare"
+                                    />
+                                   
+                                    <TextField
+                                        id="outlined-name"
+                                        label="Deposit"
+                                        type="number"
+                                        placeholder=" Enter your Deposit Value"
+                                    />
+                                </Box>
+                            </AccordionDetails>
+                        </Accordion>
+
+
+                        <Accordion>
+                            <AccordionSummary
+                                expandIcon={<ExpandMoreIcon />}
+                                aria-controls="panel1a-content"
+                                id="panel1a-header"
+                            >
+
+                                <Box sx={{
+                                    mb: 3,
+                                    p: 1.5,
+                                    borderColor: 'primary.light',
+                                    width: '100%',
+                                    borderLeft: '5px solid #3183ff',
+                                }}>
+                                    <Typography variant="h3"
+                                        sx={{
+                                            color: 'primary.dark',
+                                            // textAlign:'center',
+                                            '&:hover': {
+                                                color: 'primary.main',
+                                                opacity: [0.9, 0.8, 0.7],
+                                            },
+                                        }}
+                                    >
+                                        <SendIcon />  &nbsp;
+                                       Visa</Typography>
+                                </Box>
+                            </AccordionSummary>
+                            <AccordionDetails>
+                                <Box
+                                    sx={{
+                                        '& > :not(style)': { p: 1, m: 1, mb: 2, width: '33ch' },
+                                        m: 1, mb: 3, mt: 2,
+                                        borderLeft: '2px solid #3183ff',
+                                        borderBottom: '1px solid #3183ff',
+                                        backgroundColor: '#cfe8fc',
+                                        boxShadow: 1,
+                                        color: 'primary.main',
+                                    }} >
+                                     <LocalizationProvider dateAdapter={AdapterDateFns}>
+                                <DatePicker
+                                    label="PP Expiry"
+                                    placeholder=" Enter your PP Expiry Value"
+                                    type="number"
+                                    value={pvalue}
+                                    onChange={(newValue) => {
+                                        setValuep(newValue);
+                                    }}
+                                    renderInput={(params) => <TextField {...params} />}
+                                />
+                            </LocalizationProvider>
+                            <TextField
+                                id="outlined-name"
+                                label="Visa Type"
+                                placeholder=" Enter your Visa Type"
+                            />
+                            <LocalizationProvider dateAdapter={AdapterDateFns}>
+                                <DatePicker
+                                    label="Visa Expiry"
+                                    type="number"
+                                    placeholder=" Enter your Visa Expiry"
+                                    value={value}
+                                    onChange={(newValue) => {
+                                        setValue(newValue);
+                                    }}
+                                    renderInput={(params) => <TextField {...params} />}
+                                />
+                            </LocalizationProvider>
+                            <LocalizationProvider dateAdapter={AdapterDateFns}>
+                                <DatePicker
+                                    label="Travel Date"
+                                    type="number"
+                                    placeholder=" Enter your Travel Date"
+                                    value={tvalue}
+                                    onChange={(newValue) => {
+                                        setValuet(newValue);
+                                    }}
+                                    renderInput={(params) => <TextField {...params} />}
+                                />
+                            </LocalizationProvider>
+                                    </Box>
+                                <Box
+                                    sx={{
+                                        '& > :not(style)': { p: 1, m: 1, mb: 2, width: '33ch' },
+                                        m: 1, mb: 3, mt: 2,
+                                        borderLeft: '2px solid #3183ff',
+                                        borderBottom: '1px solid #3183ff',
+                                        backgroundColor: '#cfe8fc',
+                                        boxShadow: 1,
+                                        color: 'primary.main',
+                                    }} >
+                                    
+                                  <TextField
+                                        id="outlined-name"
+                                        label="Ticket Number"
+                                        placeholder=" Enter your Ticket Number"
+                                        type="number"
+                                    />
+
+                                    <TextField
+                                        id="outlined-name"
+                                        label="Class"
+                                        placeholder=" Enter your Class"
+
+                                    />
+
+
+                            <TextField
+                                id="outlined-name"
+                                label="PP Nationality"
+                                placeholder=" Enter your PP Nationality"
+                            />
+                            <TextField
+                                id="outlined-name"
+                                label="PP Number"
+                                placeholder=" Enter your PP Number"
+                                type="number"
+                            />
+                                
+                                </Box>
+                            </AccordionDetails>
+                        </Accordion>
+
                         
-{/* ............................button............................... */}
-            <Box sx={{ '& button': { m: 1 } }}> <div>
-                <Button variant="outlined" size="large">
-                    Submit
-                </Button>
-                <Button color="secondary" variant="outlined" size="large">
-                    Reset
-                </Button>
-            </div></Box>
-                    </AccordionDetails>
-                </Accordion>
-                <Accordion>
-                    <AccordionSummary
-                        expandIcon={<ExpandMoreIcon />}
-                        aria-controls="panel2a-content"
-                        id="panel2a-header"
-                    >
-                        <Typography>View Details</Typography>
-                    </AccordionSummary>
-                    <AccordionDetails>
-                        {/* ...................Table............................ */}
-                        <div style={{ height: 250, width: '100%' }}>
-      <DataGrid
-        columns={[{ field: 'Transition_ID', width: 150 },
-        {field:'Father/Husband_Name'},
-        {field:'Pax_Name', width:100} ,
-         { field: 'Contact', width: 100 },
-          {field: 'PNR', width: 100},
-          {field:'GDS_PNR', width: 100}, 
-          {field:'TicketNumber', width: 100},
-           {field:'Taxs', width: 100},
-           {field:'Carrer', width: 100},
-           {field:'Fare', width: 100},
-           {field:'Class'},
-           {field:'TotalFare', width:100} ,
-           {field:'Sold', width:100} ,
-           {field:'Deposit', width:100} ,
-           {field:'From_To', width:100} ,
-           {field:'To_From', width:100} ,
-           {field:'PP_Nationality', width:100} ,
-           {field:'PP_Number', width:100} ,
-           {field:'DateOfBirth', width:100} ,
-           {field:'PP_Expiry', width:100} ,
-           {field:'VisaType', width:100} ,
-           {field:'VisaExpiry', width:100} ,
-           {field:'TravelDate', width:100} ,
-           {field:'Reference', width:100} ,
-           {field:'PaxType', width:100} ,
-           {field:'RefundDate', width:100} ,
-           {field:'R/DwithPax', width:100} ,
-           {field:'Protector', width:100} ,
-           {field:'Invoice', width:100} ,
-           {field:'C/O'},
-           {field:'C/T'},
-           {field:'PaymentHistory', width:100} ,
-           {field:'Staff_Name', width:100} ,
-           {field:'Description', width:100} ,
-        
-        ]}
-        rows={rows}
-      />
-    </div>
-                    </AccordionDetails>
-                </Accordion>
-            </Box>
+                        <Accordion>
+                            <AccordionSummary
+                                expandIcon={<ExpandMoreIcon />}
+                                aria-controls="panel1a-content"
+                                id="panel1a-header"
+                            >
+
+                                <Box sx={{
+                                    mb: 3,
+                                    p: 1.5,
+                                    borderColor: 'primary.light',
+                                    width: '100%',
+                                    borderLeft: '5px solid #3183ff',
+                                }}>
+                                    <Typography variant="h3"
+                                        sx={{
+                                            color: 'primary.dark',
+                                            // textAlign:'center',
+                                            '&:hover': {
+                                                color: 'primary.main',
+                                                opacity: [0.9, 0.8, 0.7],
+                                            },
+                                        }}
+                                    >
+                                        <SendIcon />  &nbsp;
+                                        Reference</Typography>
+                                </Box>
+                            </AccordionSummary>
+                            <AccordionDetails>
+                                <Box
+                                    sx={{
+                                        '& > :not(style)': { p: 1, m: 1, mb: 2, width: '33ch' },
+                                        m: 1, mb: 3, mt: 2,
+                                        borderLeft: '2px solid #3183ff',
+                                        borderBottom: '1px solid #3183ff',
+                                        backgroundColor: '#cfe8fc',
+                                        boxShadow: 1,
+                                        color: 'primary.main',
+                                    }} >
+                                    <TextField
+                                id="outlined-name"
+                                label="Reference"
+                                placeholder=" Enter your Reference"
+                            />
+                            <TextField
+                                id="outlined-name"
+                                label="Pax type"
+                                placeholder=" Enter your Pax Type"
+                            />
+                            <LocalizationProvider dateAdapter={AdapterDateFns}>
+                                <DatePicker
+                                    label="Refund Date"
+                                    type="number"
+                                    placeholder=" Enter your Refund Date"
+                                    value={rvalue}
+                                    onChange={(newValue) => {
+                                        setValuer(newValue);
+                                    }}
+                                    renderInput={(params) => <TextField {...params} />}
+                                />
+                            </LocalizationProvider>
+                            <TextField
+                                id="outlined-name"
+                                placeholder=" Enter your R/D with Pax"
+                                label="R/D with Pax"
+                            /></Box>
+                                <Box
+                                    sx={{
+                                        '& > :not(style)': { p: 1, m: 1, mb: 2, width: '33ch' },
+                                        m: 1, mb: 3, mt: 2,
+                                        borderLeft: '2px solid #3183ff',
+                                        borderBottom: '1px solid #3183ff',
+                                        backgroundColor: '#cfe8fc',
+                                        boxShadow: 1,
+                                        color: 'primary.main',
+                                    }} >
+                                   <TextField
+                                id="outlined-name"
+                                label="Protector"
+                                placeholder=" Enter your Value"
+                            />
+
+                            <TextField
+                                id="outlined-name"
+                                label="C/O"
+                                placeholder=" Enter your C/O"
+                            />
+                            <TextField
+                                id="outlined-name"
+                                label="C/T"
+                                placeholder=" Enter your C/T"
+                            />
+                            <TextField
+                                id="outlined-name"
+                                label="Payment History"
+                                placeholder=" Enter your Payment History"
+                            /></Box>
+                                <Box
+                            sx={{
+                                '& > :not(style)': { p: 1, m: 1, width: '70ch' },
+                                m: 1, mb: 3, mt: 2,
+                                boxShadow: 1,
+                                backgroundColor: '#cfe8fc',
+                                borderLeft: '2px solid #3183ff',
+                                borderBottom: '1px solid #3183ff',
+                                borderColor: 'primary.light',
+                                '& .MuiDataGrid-cell:hover': {
+                                    color: 'primary.main',
+                                    backgroundColor: '#cfe8fc',
+                                }
+                            }}>
+                            <TextField
+                                id="outlined-name"
+                                label="Staff Name"
+                                placeholder=" Enter the Staff Name"
+                            />
+                            <TextField
+                                multiline rows={3}
+                                id="outlined-name"
+                                label="Description"
+                                placeholder=" Enter Description"
+                            />
+                        </Box>
+                                
+                            </AccordionDetails>
+                        </Accordion>
+                         
+                           
+                 
 
 
-        </Container>
-    </div>;
+                    
+
+
+                        {/* .............................buttons.................................................. */}
+
+                        <Box sx={{
+                            // float: 'right',
+                            '& > button': { m: 2 }
+                        }}>
+
+                            <LoadingButton
+                                size="large"
+                                // onClick={handleSubmitClick}
+                                endIcon={<SendIcon />}
+                                // loading={submitLoading}
+                                loadingPosition="end"
+                                variant="contained"
+                            >
+                                Submit
+                            </LoadingButton>
+                            <LoadingButton
+                                size="large"
+                                color="secondary"
+                                // onClick={handleResetClick}
+                                // loading={resetLoading}
+                                loadingPosition="start"
+                                startIcon={<SaveIcon />}
+                                variant="contained"
+                            >
+                                Reset
+                            </LoadingButton>
+                        </Box>
+                    </form>
+
+                </AccordionDetails>
+            </Accordion>
+            <Accordion>
+                <AccordionSummary
+                    sx={{
+                        // filter: 'invert(1)',
+                        color: 'primary.dark',
+                        '&:hover': {
+                            color: 'primary.main',
+                            opacity: [0.9, 0.8, 0.7],
+                        },
+                    }}
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel2a-content"
+                    id="panel2a-header"
+                >
+                    <Box sx={{
+                        p: 1.5,
+                        boxShadow: 2,
+                        border: 0.5,
+                        borderColor: 'primary.light',
+
+                    }}>
+                        <Typography variant="h4"
+                            sx={{
+                                color: 'primary.dark',
+                                '&:hover': {
+                                    color: 'primary.main',
+                                    opacity: [0.9, 0.8, 0.7],
+                                },
+                            }}
+                        >
+                            Show Details</Typography>
+                    </Box>
+                </AccordionSummary>
+                <AccordionDetails>
+                    {/* ...................Table............................ */}
+                    <div style={{ height: 450, width: '100%' }}>
+                        <DataGrid
+                            columns={[
+                                { headerName: 'Transition_ID', field: 'Transition_ID', width: 150 },
+                                { headerName: 'Father/Husband_Name', field: 'Father/Husband_Name' },
+                                { headerName: 'Pax_Name', field: 'Pax_Name', width: 100 },
+                                { headerName: 'Contact', field: 'Contact', width: 100 },
+                                { headerName: 'PNR', field: 'PNR', width: 100 },
+                                { headerName: 'GDS_PNR', field: 'GDS_PNR', width: 100 },
+                                { headerName: 'TicketNumber', field: 'TicketNumber', width: 100 },
+                                { headerName: 'Taxs', field: 'Taxs', width: 100 },
+                                { headerName: 'Carrer', field: 'Carrer', width: 100 },
+                                { headerName: 'Fare', field: 'Fare', width: 100 },
+                                { headerName: 'Class', field: 'Class', width: 100 },
+                                { headerName: 'TotalFare', field: 'TotalFare', width: 100 },
+                                { headerName: 'Sold', field: 'Sold', width: 100 },
+                                { headerName: 'Deposit', field: 'Deposit', width: 100 },
+                                { headerName: 'From_To', field: 'From_To', width: 100 },
+                                { headerName: 'To_From', field: 'To_From', width: 100 },
+                                { headerName: 'PP_Nationality', field: 'PP_Nationality', width: 100 },
+                                { headerName: 'PP_Number', field: 'PP_Number', width: 100 },
+                                { headerName: 'DateOfBirth', field: 'DateOfBirth', width: 100 },
+                                { headerName: 'PP_Expiry', field: 'PP_Expiry', width: 100 },
+                                { headerName: 'VisaType', field: 'VisaType', width: 100 },
+                                { headerName: 'VisaExpiry', field: 'VisaExpiry', width: 100 },
+                                { headerName: 'TravelDate', field: 'TravelDate', width: 100 },
+                                { headerName: 'Reference', field: 'Reference', width: 100 },
+                                { headerName: 'PaxType', field: 'PaxType', width: 100 },
+                                { headerName: 'RefundDate', field: 'RefundDate', width: 100 },
+                                { headerName: 'R/DwithPax', field: 'R/DwithPax', width: 100 },
+                                { headerName: 'Protector', field: 'Protector', width: 100 },
+                                { headerName: 'Invoice', field: 'Invoice', width: 100 },
+                                { headerName: 'C/O', field: 'C/O', width: 100 },
+                                { headerName: 'C/T', field: 'C/T', width: 100 },
+                                { headerName: 'PaymentHistory', field: 'PaymentHistory', width: 100 },
+                                { headerName: 'Staff_Name', field: 'Staff_Name', width: 100 },
+                                { headerName: 'Description', field: 'Description', width: 100 },
+
+                            ]}
+                            // rows={rows}
+
+                            sx={{
+                                m: 1, mb: 2, mt: 2,
+                                boxShadow: 5,
+                                border: 2,
+                                borderColor: 'primary.light',
+                                '& .MuiDataGrid-cell:hover': {
+                                    color: 'primary.main',
+                                    backgroundColor: '#cfe8fc',
+
+                                },
+                            }}
+                        />
+                    </div>
+                </AccordionDetails>
+            </Accordion>
+
+
+
+        </Container >
+    </div >;
 }
 
 export default Ticket;
