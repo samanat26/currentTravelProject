@@ -14,7 +14,7 @@ import DatePicker from '@mui/lab/DatePicker';
 import SaveIcon from '@mui/icons-material/Save';
 import SendIcon from '@mui/icons-material/Send';
 import LoadingButton from '@mui/lab/LoadingButton';
-// import oRows from "./sampletb";
+import oRows from "./sampletb";
 import { IconUsers } from '@tabler/icons';
 import MdPhone from '@mui/icons-material/Phone';
 import Chip from '@mui/material/Chip';
@@ -419,7 +419,7 @@ const TemporaryBooking = () => {
                                 {  field: "TotalFare",headerName: "TotalFare", width: 150 },
                                 {  field: "Sold",headerName: "Sold", width: 150 },
                                 {  field: "TimeLimit",headerName: "TimeLimit", width: 150 }]}
-                                // rows={oRows}
+                                rows={oRows}
                                 
                                 sx={{
                                     m: 1, mb: 2, mt: 2,

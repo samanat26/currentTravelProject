@@ -17,6 +17,15 @@ const UtilsShadow = Loadable(lazy(() => import('views/utilities/Shadow')));
 const UtilsMaterialIcons = Loadable(lazy(() => import('views/utilities/MaterialIcons')));
 const UtilsTablerIcons = Loadable(lazy(() => import('views/utilities/TablerIcons')));
 
+// vouchers routing
+
+const BankDepositVoch= Loadable(lazy(() => import('views/accounts/BankDepositVoch')));
+const BankPayVoch= Loadable(lazy(() => import('views/accounts/BankPayVoch')));
+const CashPayVoch= Loadable(lazy(() => import('views/accounts/CashPayVoch')));
+const CashReceiptVoch= Loadable(lazy(() => import('views/accounts/CashReceiptVoch')));
+const JournalVoch= Loadable(lazy(() => import('views/accounts/JournalVoch')));
+const Refund= Loadable(lazy(() => import('views/accounts/Refund')));
+
 // sample page routing
 const SamplePage = Loadable(lazy(() => import('views/sample-page')));
 
@@ -34,6 +43,8 @@ const MainRoutes = {
             path: '/dashboard/default',
             element: <DashboardDefault />
         },
+
+     // .......................bookings....................   
         {
             path: '/booking/temporary-booking',
             element: <TemporaryBooking />
@@ -50,6 +61,33 @@ const MainRoutes = {
             path: '/booking/visa',
             element: <Visa />
         },
+            // ..........................vouchers........................
+
+        {
+            path: '/accounts/bankdeposit',
+            element: <BankDepositVoch />
+        },
+        {
+            path: '/accounts/bankpay',
+            element: <BankPayVoch />
+        },
+        {
+            path: '/accounts/cashpay',
+            element: <CashPayVoch />
+        },
+        {
+            path: '/accounts/cashreciept',
+            element: <CashReceiptVoch />
+        },
+        {
+            path: '/accounts/journalvouch',
+            element: <JournalVoch />
+        },
+        {
+            path: '/accounts/refund',
+            element: <Refund />
+        },
+            // ........................................................
         {
             path: '/utils/util-color',
             element: <UtilsColor />
