@@ -2,6 +2,7 @@ import React from 'react'
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { styled } from '@mui/material/styles';
+import DatePicker from '@mui/lab/DatePicker';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper'; import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
@@ -9,12 +10,82 @@ import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
-import DatePicker from '@mui/lab/DatePicker';
+import TimePicker from '@mui/lab/TimePicker';
 import FormControl from '@mui/material/FormControl';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
+import Modal from '@mui/material/Modal';
+import { DataGrid } from '@mui/x-data-grid';
+import SendIcon from '@mui/icons-material/Send';
+import LoadingButton from '@mui/lab/LoadingButton';
 
+const columns = [
+  { field: 'code', headerName: 'Code', width: 90 },
+  { field: 'dbCr', headerName: 'Db/Cr', width: 100 },
+  { field: 'description', headerName: 'Description', width: 300 },
+  {
+    field: 'segregation',
+    headerName: 'Segregation',
+    // type: 'number',
+    width: 100,
+  },
+  {
+    field: 'recipt',
+    headerName: 'Recipt #',
+    width: 100,
+    type: 'number',
+    // valueGetter: (params) =>
+    //   `${params.row.firstName || ''} ${params.row.lastName || ''}`,
+  },
+  {
+    field: 'cheque',
+    headerName: 'Cheque No.',
+    type: 'number',
+    width: 100,
+  },
+  {
+    field: 'amount',
+    headerName: 'Amount',
+    type: 'number',
+    width: 100,
+  },
+  {
+    field: 'postingDate',
+    headerName: 'Posting Date',
+    // type: 'number',
+    width: 100,
+  },
+  {
+    field: 'saleReport',
+    headerName: 'Adjust in Sale Report',
+    // type: 'number',
+    width: 100,
+  },
+  {
+    field: 'crNo',
+    headerName: 'CR.No.',
+    // type: 'number',
+    width: 100,
+  },
+];
+
+const rows = [
+
+];
+
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 500,
+  bgcolor: 'background.paper',
+  border: '2px solid #cfe8fc',
+  borderRadius: '15px',
+  boxShadow: 24,
+  p: 4,
+};
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -26,8 +97,13 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export default function JournalVoch() {
 
-  const [value, setValue] = React.useState(new Date());
+  const [dvalue, setdValue] = React.useState(new Date());
   const [checked, setChecked] = React.useState(true);
+  const [value, setValue] = React.useState(new Date('2018-01-01T00:00:00.000Z'));
+  // ...................modal.............................
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
 
   const handleChange = (event) => {
@@ -64,8 +140,9 @@ export default function JournalVoch() {
               },
             }}
           >
-          Journal Voucher</Typography>
+            Journal Voucher</Typography>
         </Box>
+
         {/* .............................header end.......................  */}
 
 
@@ -80,9 +157,9 @@ export default function JournalVoch() {
                   <LocalizationProvider dateAdapter={AdapterDateFns}>
                     <DatePicker
                       label="Refund Void Date"
-                      value={value}
+                      value={dvalue}
                       onChange={(newValue) => {
-                        setValue(newValue);
+                        setdValue(newValue);
                       }}
                       renderInput={(params) => <TextField {...params} />}
                     />
@@ -108,17 +185,90 @@ export default function JournalVoch() {
             </Grid>
           </Grid>
         </Box>
-        {/* ..................................................................... */}
-        <div>forms</div>
 
-        {/* ..................................................................... */}
+        {/* ...................form.................................................. */}
+        <div style={{ mb: 4, height: 400, width: '100%' }}>
+          <DataGrid
+            rows={rows}
+            columns={columns}
+            pageSize={5}
+            rowsPerPageOptions={[5]}
+          // checkboxSelection
+          />
+        </div>
 
-        <Grid container spacing={2}>
+        {/* .......................add btn.............................................. */}
+
+        <Grid container spacing={2} sx={{ m: 1 }}>
           <Grid item xs={3}>
-            <Button variant="contained" size="large">
+            <Button onClick={handleOpen} variant="contained" size="large">
               ADD
             </Button>
+
+            {/* .............................modal..................... */}
+            <Modal
+              open={open}
+              onClose={handleClose}
+              aria-labelledby="modal-modal-title"
+              aria-describedby="modal-modal-description"
+            >
+              <Box sx={style}>
+              <Typography variant="h3"
+            sx={{
+              color: 'primary.dark',
+              textAlign: 'center',
+              '&:hover': {
+                color: 'primary.main',
+                opacity: [0.9, 0.8, 0.7],
+              },
+            }}
+          >
+            Fill the Fields</Typography>
+                <Box
+                  component="form"
+                  sx={{
+                    '& > :not(style)': { m: 1, width: '50ch' },
+                  }}
+                  noValidate
+                  autoComplete="off"
+                >
+                  <Stack direction="row" spacing={2}>
+                  <TextField id="outlined-basic" label="Code" variant="outlined" />
+                  </Stack>
+                  <Stack direction="row" spacing={2}>
+                  <TextField  id="outlined-multiline-flexible" label="Description" multilinemaxRows={4} />
+                  <TextField id="outlined-basic" label="Segregation" variant="outlined" />
+                  </Stack>
+                  <Stack direction="row" spacing={2}>
+                  <TextField id="outlined-basic" label="Recipt #" variant="outlined" />
+                  <TextField id="outlined-basic" label="Cheque No." variant="outlined" />
+                  </Stack>
+                  <Stack direction="row" spacing={2}>
+                  <TextField id="outlined-basic" label="Amount" variant="outlined" />
+                  <TextField id="outlined-basic" label="Posting Date" variant="outlined" />
+                  </Stack>
+                  <Stack direction="row" spacing={2}>
+                  <TextField id="outlined-basic" label="In Sale Report" variant="outlined" />
+                  <TextField id="outlined-basic" label="CR.No." variant="outlined" />
+                  </Stack>
+                  <Box sx={{ float: 'left', '& button': { m: 1 } }}> 
+                  <LoadingButton
+                                        size="large"
+                                        // onClick={handleSubmitClick}
+                                        endIcon={<SendIcon />}
+                                        // loadin={submitLoading}
+                                        loadingPosition="end"
+                                        variant="contained"
+                                    >
+                                        Add
+                                    </LoadingButton>
+                </Box>
+              </Box>
+              </Box>
+            </Modal>
+            {/* .....................modal end............... */}
           </Grid>
+
           <Grid item xs={3}>
             <Button variant="contained" size="large">
               New Account
@@ -133,13 +283,12 @@ export default function JournalVoch() {
             </Box>
           </Grid>
           <Grid item xs={3}>
-            <Box sx={{ '& > :not(style)': { m: 1, width: '40ch' }, }} >
+            <Box sx={{ '& > :not(style)': { m: 1, width: '30ch' }, }} >
               <TextField id="outlined-name" label="" />
             </Box>
-            <Box sx={{ '& > :not(style)': { m: 1, width: '40ch' }, }} >
+            <Box sx={{ '& > :not(style)': { m: 1, width: '30ch' }, }} >
               <LocalizationProvider dateAdapter={AdapterDateFns}>
-                <DatePicker
-                  label="Refund Void Date"
+                <TimePicker
                   value={value}
                   onChange={(newValue) => {
                     setValue(newValue);
@@ -163,37 +312,37 @@ export default function JournalVoch() {
         }}>
           <Grid container spacing={2}>
             <Grid item xs={4}>
-            <Item>
-              <Typography variant="h4"
-            sx={{
-              color: 'primary.dark',
-              textAlign: 'center',
-              '&:hover': {
-                color: 'primary.main',
-                opacity: [0.9, 0.8, 0.7],
-              },
-            }}
-          >
-            Journal Voucher :</Typography>  
-            </Item>
+              <Item>
+                <Typography variant="h4"
+                  sx={{
+                    color: 'primary.dark',
+                    textAlign: 'center',
+                    '&:hover': {
+                      color: 'primary.main',
+                      opacity: [0.9, 0.8, 0.7],
+                    },
+                  }}
+                >
+                  Journal Voucher :</Typography>
+              </Item>
             </Grid>
             <Grid item xs={8}>
               <Item>
                 <Typography variant="h5"
-            sx={{
-              color: 'primary.dark',
-              textAlign: 'left',
-              '&:hover': {
-                color: 'primary.main',
-                opacity: [0.9, 0.8, 0.7],
-              },
-            }}
-          >
-            This is adjustment voucher any account can be debit or credit , depends on entry, There should be double entry and debit and credit total must be equal. Cash Code is not allow in this voucher </Typography>
-            </Item>
+                  sx={{
+                    color: 'primary.dark',
+                    textAlign: 'left',
+                    '&:hover': {
+                      color: 'primary.main',
+                      opacity: [0.9, 0.8, 0.7],
+                    },
+                  }}
+                >
+                  This is adjustment voucher any account can be debit or credit , depends on entry, There should be double entry and debit and credit total must be equal. Cash Code is not allow in this voucher </Typography>
+              </Item>
             </Grid>
           </Grid>
-       </Box>
+        </Box>
 
 
       </Container>
