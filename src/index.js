@@ -13,6 +13,11 @@ import App from './App';
 // style + assets
 import './assets/scss/style.scss';
 
+// amplify set up front end
+import Amplify from "aws-amplify";
+import awsExports from "./aws-exports";
+Amplify.configure(awsExports);
+
 // ===========================|| REACT DOM RENDER  ||=========================== //
 
 ReactDOM.render(

@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-imamtravels-dev-224825-authRole",
+      "UnauthRoleArn": "arn:aws:iam::881003124788:role/amplify-imamtravels-dev-224825-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::881003124788:role/amplify-imamtravels-dev-224825-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-imamtravels-dev-224825-deployment",
+      "UnauthRoleName": "amplify-imamtravels-dev-224825-unauthRole",
+      "StackName": "amplify-imamtravels-dev-224825",
+      "StackId": "arn:aws:cloudformation:us-east-1:881003124788:stack/amplify-imamtravels-dev-224825/d11f4a80-94d0-11ec-b73f-125a905e48c7",
+      "AmplifyAppId": "dw5i47bih3q7s"
+    }
+  }
+}
