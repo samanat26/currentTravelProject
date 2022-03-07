@@ -4,7 +4,8 @@ import Container from '@mui/material/Container';
 import { styled } from '@mui/material/styles';
 import DatePicker from '@mui/lab/DatePicker';
 import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper'; import Button from '@mui/material/Button';
+import Paper from '@mui/material/Paper';
+ import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
@@ -125,15 +126,15 @@ function CashReceiptVoch() {
         p: 1.5,
         boxShadow: 2,
         border: 0.5,
-        borderColor: 'primary.light',
+        borderColor: '#8A2BE2',
 
       }}>
         <Typography variant="h1"
           sx={{
-            color: 'primary.dark',
+            color: '#8A2BE2',
             textAlign: 'center',
             '&:hover': {
-              color: 'primary.main',
+              color: '#8A2BE2',
               opacity: [0.9, 0.8, 0.7],
             },
           }}
@@ -197,7 +198,7 @@ function CashReceiptVoch() {
 
       <Grid container spacing={2}  sx = {{m:1}}>
       <Grid item xs={3}>
-            <Button onClick={handleOpen} variant="contained" size="large">
+            <Button color="secondary" onClick={handleOpen} variant="contained" size="large">
               ADD
             </Button>
 
@@ -211,10 +212,10 @@ function CashReceiptVoch() {
               <Box sx={style}>
               <Typography variant="h3"
             sx={{
-              color: 'primary.dark',
+              color: '#8A2BE2',
               textAlign: 'center',
               '&:hover': {
-                color: 'primary.main',
+                color: '#8A2BE2',
                 opacity: [0.9, 0.8, 0.7],
               },
             }}
@@ -249,6 +250,7 @@ function CashReceiptVoch() {
                   </Stack>
                   <Box sx={{ float: 'left', '& button': { m: 1 } }}> 
                   <LoadingButton
+                  color="secondary"
                                         size="large"
                                         // onClick={handleSubmitClick}
                                         endIcon={<SendIcon />}
@@ -265,7 +267,7 @@ function CashReceiptVoch() {
             {/* .....................modal end............... */}
           </Grid>
         <Grid item xs={3}>
-          <Button variant="contained" size="large">
+          <Button color="secondary" variant="contained" size="large">
             New Account
           </Button>
         </Grid>
@@ -300,7 +302,7 @@ function CashReceiptVoch() {
         p: 1.5,
         boxShadow: 2,
         border: 0.5,
-        borderColor: 'primary.light',
+        borderColor: '#8A2BE2',
 
       }}>
         <Grid container spacing={2}>
@@ -308,10 +310,10 @@ function CashReceiptVoch() {
             <Item>
               <Typography variant="h4"
                 sx={{
-                  color: 'primary.dark',
+                  color: '#8A2BE2',
                   textAlign: 'center',
                   '&:hover': {
-                    color: 'primary.main',
+                    color: '#8A2BE2',
                     opacity: [0.9, 0.8, 0.7],
                   },
                 }}
@@ -323,10 +325,10 @@ function CashReceiptVoch() {
             <Item>
               <Typography variant="h5"
                 sx={{
-                  color: 'primary.dark',
+                  color: '#8A2BE2',
                   textAlign: 'left',
                   '&:hover': {
-                    color: 'primary.main',
+                    color: '#8A2BE2',
                     opacity: [0.9, 0.8, 0.7],
                   },
                 }}

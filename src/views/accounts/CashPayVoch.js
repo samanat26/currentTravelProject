@@ -125,15 +125,15 @@ function CashPayVoch() {
         p: 1.5,
         boxShadow: 2,
         border: 0.5,
-        borderColor: 'primary.light',
+        borderColor: '#8A2BE2',
 
       }}>
         <Typography variant="h1"
           sx={{
-            color: 'primary.dark',
+            color: '#8A2BE2',
             textAlign: 'center',
             '&:hover': {
-              color: 'primary.main',
+              color: '#8A2BE2',
               opacity: [0.9, 0.8, 0.7],
             },
           }}
@@ -197,7 +197,8 @@ function CashPayVoch() {
 
       <Grid container spacing={2}  sx = {{m:1}}>
       <Grid item xs={3}>
-            <Button onClick={handleOpen} variant="contained" size="large">
+            <Button color="secondary" 
+            onClick={handleOpen} variant="contained" size="large">
               ADD
             </Button>
 
@@ -211,10 +212,10 @@ function CashPayVoch() {
               <Box sx={style}>
               <Typography variant="h3"
             sx={{
-              color: 'primary.dark',
+              color: '#8A2BE2',
               textAlign: 'center',
               '&:hover': {
-                color: 'primary.main',
+                color: '#8A2BE2',
                 opacity: [0.9, 0.8, 0.7],
               },
             }}
@@ -247,8 +248,9 @@ function CashPayVoch() {
                   <TextField id="outlined-basic" label="In Sale Report" variant="outlined" />
                   <TextField id="outlined-basic" label="CR.No." variant="outlined" />
                   </Stack>
-                  <Box sx={{ float: 'left', '& button': { m: 1 } }}> 
+                  <Box sx={{ float: 'left', '& #8A2BE2': { m: 1 } }}> 
                   <LoadingButton
+                  color="secondary"
                                         size="large"
                                         // onClick={handleSubmitClick}
                                         endIcon={<SendIcon />}
@@ -265,7 +267,7 @@ function CashPayVoch() {
             {/* .....................modal end............... */}
           </Grid>
         <Grid item xs={3}>
-          <Button variant="contained" size="large">
+          <Button variant="contained" color="secondary" size="large">
             New Account
           </Button>
         </Grid>
@@ -300,7 +302,7 @@ function CashPayVoch() {
         p: 1.5,
         boxShadow: 2,
         border: 0.5,
-        borderColor: 'primary.light',
+        borderColor: '#8A2BE2',
 
       }}>
         <Grid container spacing={2}>
@@ -308,10 +310,10 @@ function CashPayVoch() {
             <Item>
               <Typography variant="h4"
                 sx={{
-                  color: 'primary.dark',
+                  color: '#8A2BE2',
                   textAlign: 'center',
                   '&:hover': {
-                    color: 'primary.main',
+                    color: '#8A2BE2',
                     opacity: [0.9, 0.8, 0.7],
                   },
                 }}
@@ -323,10 +325,10 @@ function CashPayVoch() {
             <Item>
               <Typography variant="h5"
                 sx={{
-                  color: 'primary.dark',
+                  color: '#8A2BE2',
                   textAlign: 'left',
                   '&:hover': {
-                    color: 'primary.main',
+                    color: '#8A2BE2',
                     opacity: [0.9, 0.8, 0.7],
                   },
                 }}

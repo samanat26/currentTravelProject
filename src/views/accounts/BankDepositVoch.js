@@ -127,15 +127,15 @@ function BankDepositVoch() {
         p: 1.5,
         boxShadow: 2,
         border: 0.5,
-        borderColor: 'primary.light',
+        borderColor: '#8A2BE2',
 
       }}>
         <Typography variant="h1"
           sx={{
-            color: 'primary.dark',
+            color: '#8A2BE2',
             textAlign: 'center',
             '&:hover': {
-              color: 'primary.main',
+              color: '#8A2BE2',
               opacity: [0.9, 0.8, 0.7],
             },
           }}
@@ -199,7 +199,10 @@ function BankDepositVoch() {
 
       <Grid container spacing={2}  sx = {{m:1}}>
       <Grid item xs={3}>
-            <Button onClick={handleOpen} variant="contained" size="large">
+            <Button 
+            onClick={handleOpen}
+             color="secondary"
+             variant="contained" size="large">
               ADD
             </Button>
 
@@ -213,10 +216,10 @@ function BankDepositVoch() {
               <Box sx={style}>
               <Typography variant="h3"
             sx={{
-              color: 'primary.dark',
+              color: '#8A2BE2',
               textAlign: 'center',
               '&:hover': {
-                color: 'primary.main',
+                color: '#8A2BE2',
                 opacity: [0.9, 0.8, 0.7],
               },
             }}
@@ -257,6 +260,7 @@ function BankDepositVoch() {
                                         // loadin={submitLoading}
                                         loadingPosition="end"
                                         variant="contained"
+                                        color="secondary"
                                     >
                                         Add
                                     </LoadingButton>
@@ -267,7 +271,7 @@ function BankDepositVoch() {
             {/* .....................modal end............... */}
           </Grid>
         <Grid item xs={3}>
-          <Button variant="contained" size="large">
+          <Button variant="contained" color="secondary" size="large">
             New Account
           </Button>
         </Grid>
@@ -302,7 +306,7 @@ function BankDepositVoch() {
         p: 1.5,
         boxShadow: 2,
         border: 0.5,
-        borderColor: 'primary.light',
+        borderColor: '#8A2BE2',
 
       }}>
         <Grid container spacing={2}>
@@ -310,10 +314,10 @@ function BankDepositVoch() {
             <Item>
               <Typography variant="h4"
                 sx={{
-                  color: 'primary.dark',
+                  color: '#8A2BE2',
                   textAlign: 'center',
                   '&:hover': {
-                    color: 'primary.main',
+                    color: '#8A2BE2',
                     opacity: [0.9, 0.8, 0.7],
                   },
                 }}
@@ -325,10 +329,10 @@ function BankDepositVoch() {
             <Item>
               <Typography variant="h5"
                 sx={{
-                  color: 'primary.dark',
+                  color: '#8A2BE2',
                   textAlign: 'left',
                   '&:hover': {
-                    color: 'primary.main',
+                    color: '#8A2BE2',
                     opacity: [0.9, 0.8, 0.7],
                   },
                 }}

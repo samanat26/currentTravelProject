@@ -30,7 +30,7 @@ function Refund() {
     const [value, setValue] = React.useState(new Date());
     return (
         <div>
-            <Box sx={{ flexGrow: 1, borderBottom: '5px solid #3183ff' }}>
+            <Box sx={{ flexGrow: 1, borderBottom: '5px solid #8A2BE2' }}>
                 <Grid container spacing={0}>
                     <Box sx={{
                         flexGrow: 1,
@@ -45,11 +45,11 @@ function Refund() {
                         <div>
                             <Typography variant="h1"
                                 sx={{
-                                    color: 'primary.dark',
+                                    color: '#8A2BE2',
 
                                     textAlign: 'center',
                                     '&:hover': {
-                                        color: 'primary.main',
+                                        color: '#8A2BE2',
                                         opacity: [0.9, 0.8, 0.7],
                                     },
                                 }}
@@ -65,6 +65,7 @@ function Refund() {
                                         // loadin={submitLoading}
                                         loadingPosition="end"
                                         variant="contained"
+                                        color="secondary"
                                     >
                                         SMS
                                     </LoadingButton>
@@ -807,14 +808,14 @@ function Refund() {
                             p: 1.5,
                             boxShadow: 2,
                             border: 0.5,
-                            borderColor: 'primary.light',
+                            borderColor: '#8A2BE2',
 
                         }}>
                             <Typography variant="h3"
                                 sx={{ textAlign:'center',
-                                    color: 'primary.dark',
+                                    color: '#8A2BE2',
                                     '&:hover': {
-                                        color: 'primary.main',
+                                        color: '#8A2BE2',
                                         opacity: [0.9, 0.8, 0.7],
                                     },
                                 }}
@@ -827,14 +828,14 @@ function Refund() {
                             p: 1.5,
                             boxShadow: 2,
                             border: 0.5,
-                            borderColor: 'primary.light',
+                            borderColor: '#8A2BE2',
 
                         }}>
                              <Typography variant="h3"
                                 sx={{ textAlign:'center',
-                                    color: 'primary.dark',
+                                    color: '#8A2BE2',
                                     '&:hover': {
-                                        color: 'primary.main',
+                                        color: '#8A2BE2',
                                         opacity: [0.9, 0.8, 0.7],
                                     },
                                 }}
@@ -853,9 +854,9 @@ function Refund() {
                     </Stack>
                     <Typography variant="h3"
                                 sx={{ textAlign:'center',
-                                    color: 'primary.dark',
+                                    color: '#8A2BE2',
                                     '&:hover': {
-                                        color: 'primary.main',
+                                        color: '#8A2BE2',
                                         opacity: [0.9, 0.8, 0.7],
                                     },
                                 }}
@@ -886,46 +887,46 @@ function Refund() {
                     <Grid item xs={12}>
                         <Item >
                             <Box sx={{ '& button': { m: 1 } }}> <div>
-                                <Button variant="outlined" size="large">
+                                <Button variant="outlined"color="secondary" size="large">
                                     Add
                                 </Button>
-                                <Button variant="outlined" size="large">
+                                <Button variant="outlined" color="secondary"size="large">
                                     Edit
                                 </Button>
-                                <Button variant="outlined" size="large">
+                                <Button variant="outlined"color="secondary" size="large">
                                     Delete
                                 </Button>
-                                <Button variant="outlined" size="large">
+                                <Button variant="outlined" color="secondary"size="large">
                                     Search
                                 </Button>
-                                <Button variant="outlined" size="large">
+                                <Button variant="outlined" color="secondary"size="large">
                                     Others
                                 </Button>
-                                <Button variant="outlined" size="large">
+                                <Button variant="outlined" color="secondary"size="large">
                                     Detail Remarks
                                 </Button>
-                                <Button variant="outlined" size="large">
+                                <Button variant="outlined" color="secondary"size="large">
                                     UP
                                 </Button>
-                                <Button variant="outlined" size="large">
+                                <Button variant="outlined"color="secondary" size="large">
                                     Down
                                 </Button>
-                                <Button variant="outlined" size="large">
+                                <Button variant="outlined" color="secondary"size="large">
                                     upward
                                 </Button>
-                                <Button variant="outlined" size="large">
+                                <Button variant="outlined" color="secondary"size="large">
                                     downward
                                 </Button>
-                                <Button variant="outlined" size="large">
+                                <Button variant="outlined" size="large"color="secondary">
                                     Change Ref.#
                                 </Button>
-                                <Button variant="outlined" size="large">
+                                <Button variant="outlined" color="secondary"size="large">
                                     Credit Note
                                 </Button>
-                                <Button variant="outlined" size="large">
+                                <Button variant="outlined" color="secondary"size="large">
                                     Excel Viewer
                                 </Button>
-                                <Button variant="outlined" size="large">
+                                <Button variant="outlined" color="secondary"size="large">
                                     Invoices Clear
                                 </Button>
                             </div></Box>

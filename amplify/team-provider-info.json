@@ -10,6 +10,11 @@
       "StackName": "amplify-imamtravels-dev-224825",
       "StackId": "arn:aws:cloudformation:us-east-1:881003124788:stack/amplify-imamtravels-dev-224825/d11f4a80-94d0-11ec-b73f-125a905e48c7",
       "AmplifyAppId": "dw5i47bih3q7s"
+    },
+    "categories": {
+      "auth": {
+        "imamtravels056f1c7f": {}
+      }
     }
   }
 }
