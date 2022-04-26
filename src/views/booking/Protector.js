@@ -7,12 +7,11 @@ import Button from '@mui/material/Button';
 import Ptable from './Ptable';
 import Pform from './Pform';
 
-
 const Protector = () => {
 
     const [open, setOpen] = React.useState(true)
 
-    return 
+    return (
     <div>
         <Container maxWidth="lg">
             <Box xs={{ mt: 5 }}>
@@ -52,6 +51,7 @@ const Protector = () => {
             </Box >
             {open ? <Ptable /> : <Pform />}
         </Container >
-    </div >;
+    </div >
+    )
 }
 export default Protector;
